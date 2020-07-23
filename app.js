@@ -29,7 +29,7 @@ class UI {
         books.forEach((book) => UI.addBookToList(book));
     }
 
-    // Adds book to Table
+    // Adds book to list
     static addBookToList(book) {
         const list = document.querySelector('#book-list');
         const row = document.createElement('tr');
@@ -50,6 +50,13 @@ class UI {
         document.querySelector('#title').value = "";
         document.querySelector('#author').value = "";
         document.querySelector('#isbn').value = "";
+    }
+
+    // Delete book from list
+    static deleteBook(el) {
+        if (el.classList.contains('delete')) {
+            el.parentElement.parentElement.remove();
+        }
     }
 }
 
@@ -79,3 +86,6 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 });
 
 // Event: Remove a Book
+document.querySelector('#book-list').addEventListener('click', (e) => {
+    UI.deleteBook(e.target);
+})
