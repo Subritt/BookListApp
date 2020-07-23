@@ -1,6 +1,34 @@
 // Book Class: Represents a Book
+class Book {
+    constructor(title, author, isbn) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+    }
+}
 
 // UI Class: Handle UI Tasks
+class UI {
+    static displayBooks() {
+        // Dummy Books
+        const StoredBooks = [
+            {
+                title: 'Book One',
+                author: 'John Doe',
+                isbn: '3434434'
+            },
+            {
+                title: 'Book Two',
+                author: 'Jane Doe',
+                isbn: '45545'
+            }
+        ];
+
+        const books = StoredBooks;
+
+        books.forEach((book) => UI.addBookToList(book));
+    }
+}
 
 // Store Class: Handles Storage
 
